@@ -1,0 +1,169 @@
+#! /bin/bash
+
+#	Applies packet loss, latency and data rate throttling
+
+#	PER: Packet Error Ratio
+#	Latency is in milliseconds
+
+#	Datarate formats <num><rate>:
+#		1Mbit
+#		2kbit
+
+PER=$1
+LATENCY=$2
+DATARATE=$3
+#INT=$4
+
+#	Populate ARCH with the hardware type so we can detect if on Pis or x86 VMs
+ARCH=$(uname -m)
+echo "---ARCH:$ARCH---"
+
+	if [ "$ARCH" == "armv7l" ];
+		then
+		#	Raspberry Pis
+		INT1=eth0
+		INT2=eth1
+	
+	else
+		#	Ubuntu VMs
+		INT1=$(ls /sys/class/net | awk 'NR==1 {print $1}')
+		INT2=$(ls /sys/class/net | awk 'NR==2 {print $1}')
+	fi
+
+if [ $# -eq 0 ]
+  then
+    #echo "Usage: netsim <PER> <LATENCY> <DATARATE> <INTERFACE>"
+    echo "Usage: netsim <PER> <LATENCY> <DATARATE>"
+        #echo "e.g. netsim 0.0001 500ms 125kbit eth0"
+        echo "e.g. netsim 0.0001 500ms 125kbit"
+        echo ""
+        echo "To clear all previous rules:"
+        echo "netsim clear"
+        echo ""
+        echo "To list rules:"
+        echo "netsim list"
+
+        exit
+fi
+
+if [ "$1" == "clear" ]
+    then
+	#INT=$2
+    echo Deleting previous rules on $INT1
+    tc qdisc del dev $INT1 root
+    echo Deleting previous rules on $INT2
+    tc qdisc del dev $INT2 root
+    exit
+fi
+
+if [ "$1" == "list" ]
+    then
+	#INT=$2
+    echo Listing rules on $INT1
+   	tc -s qdisc ls dev $INT1
+   	echo Listing rules on $INT2
+   	tc -s qdisc ls dev $INT2
+    exit
+fi
+
+echo --------------
+echo PER:$1%
+echo LATENCY=$2
+echo DATARATE=$3
+echo INT1=$INT1
+echo INT2=$INT2
+echo --------------
+
+echo "Clearing previous rules..."
+#sudo tc qdisc del dev eth0 root
+sudo tc qdisc del dev $INT2 root
+echo ''
+
+#echo "Applying new rules to eth0...(inbound)"
+# original:
+#tc qdisc add dev eth0 root handle 1:0 tbf rate $DATARATE buffer 1600 limit 3000
+#tc qdisc add dev eth0 parent 1:0 handle 10: netem delay $LATENCY loss $PER
+
+#tc qdisc add dev eth0 root handle 1:0 tbf rate $DATARATE buffer 104857600 limit 104857600
+#tc qdisc add dev eth0 parent 1:0 handle 10: netem delay $LATENCY loss $PER limit 10485760000
+
+#tc qdisc add dev eth0 root handle 1:0 tbf rate $DATARATE buffer 10485 limit 10485760000
+#tc qdisc add dev eth0 parent 1:0 handle 10: netem delay $LATENCY loss $PER rate $DATARATE
+
+#	New
+#tc qdisc add dev eth0 root netem delay $LATENCY loss $PER rate $DATARATE
+
+#tc qdisc add dev eth0 root handle 1:0 tbf rate $DATARATE burst 10240kb mtu 1500 latency 100s
+#tc qdisc add dev eth0 parent 1:0 handle 10: netem delay $LATENCY loss $PER
+
+#tc qdisc add dev eth0 root handle 1:0 tbf rate $DATARATE burst 10240kb mtu 1500 latency 100s
+#tc qdisc add dev eth0 root netem delay $LATENCY loss $PER
+
+echo "Applying new rules to $INT2...(outbound)"
+#echo ''
+## original:
+CMD="tc qdisc add dev $INT2 root handle 1:0 tbf rate $DATARATE buffer 1600 limit 3000"
+echo $CMD
+eval $CMD
+CMD="tc qdisc add dev $INT2 parent 1:0 handle 10: netem delay $LATENCY loss $PER"
+echo $CMD
+eval $CMD
+
+#echo "Applying new rules to eth1...(outbound)"
+#echo ''
+#CMD="tc qdisc add dev eth1 root handle 1:0 tbf rate $DATARATE buffer 1600 limit 3000"
+#echo $CMD
+#eval $CMD
+#CMD="tc qdisc add dev eth1 parent 1:0 handle 10: netem delay $LATENCY loss $PER"
+#echo $CMD
+#eval $CMD
+
+#tc qdisc add dev eth1 root handle 1:0 tbf rate $DATARATE buffer 104857600 limit 104857600
+#tc qdisc add dev eth1 parent 1:0 handle 10: netem delay $LATENCY loss $PER limit 10485760000
+
+#tc qdisc add dev eth1 root handle 1:0 tbf rate $DATARATE buffer 10485 limit 10485760000
+#tc qdisc add dev eth1 parent 1:0 handle 10: netem delay $LATENCY loss $PER rate $DATARATE
+
+#tc qdisc add dev eth1 root netem delay $LATENCY loss $PER rate $DATARATE
+
+#	New
+
+# 1: root
+# |
+# 1:0 netem delay
+# |
+# 10:0 tbf rate
+# |
+# 20:0 tbf rate (To ensure the bucket is not emptied at a higher rate than desired)
+
+#CMD="tc qdisc add dev eth1 root handle 1:0 netem delay $LATENCY loss $PER"
+#echo $CMD
+#eval $CMD
+
+#CMD="tc qdisc add dev eth1 parent 1:0 handle 10:  tbf rate $DATARATE burst 3Mb mtu 1500 latency 100s"
+#echo $CMD
+#eval $CMD
+
+#CMD="tc qdisc add dev eth1 parent 10:0 handle 20: tbf rate 2Mbit burst 2Mb mtu 1500 latency 100s"
+#echo $CMD
+#eval $CMD
+
+
+
+
+
+#echo ''
+#echo "Rules applied to eth0 (inbound):"
+#tc qdisc ls dev eth0
+#echo ''
+
+echo ''
+echo "Rules applied to $INT2 (outbound):"
+tc qdisc ls dev $INT2
+echo ''
+
+#echo Showing stats on eth0
+#tc -s qdisc ls dev eth0
+
+#echo Showing stats on eth1
+#tc -s qdisc ls dev eth1

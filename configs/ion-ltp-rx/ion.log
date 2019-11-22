@@ -1,0 +1,49 @@
+[2019/11/22-14:24:02] [i] No congestion collapse predicted.
+[2019/11/22-14:24:02] [i] ionwarn finished.
+[2019/11/22-14:24:03] [i] rfxclock is running.
+[2019/11/22-14:24:04] [i] Span to engine 1 (max BER 0.000001, max xmit segment size 1400, max recv segment size 1): xmit segment loss rate 0.011285, recv segment loss rate 0.000008, max timeouts 4.
+[2019/11/22-14:24:04] [i] Total max export sessions does not exceed estimate.
+[2019/11/22-14:24:04] [i] No congestion collapse predicted.
+[2019/11/22-14:24:04] [i] ionwarn finished.
+[2019/11/22-14:24:05] [i] Bundle security is enabled.
+[2019/11/22-14:24:06] [i] ltpmeter is running.
+[2019/11/22-14:24:06] [i] ltpclock is running.
+[2019/11/22-14:24:06] [i] udplsi is running, spec=[0.0.0.0:1113].
+[2019/11/22-14:24:06] [i] udplso is running, spec=[172.0.0.3:1113], txbps=0 (0=unlimited), rengine=1.
+[2019/11/22-14:24:08] [i] ipnfw is running.
+[2019/11/22-14:24:08] [i] bptransit is running.
+[2019/11/22-14:24:08] [i] ipnadminep is running.
+[2019/11/22-14:24:08] [i] ltpcli is running.
+[2019/11/22-14:24:08] [i] bpclock is running.
+[2019/11/22-14:24:08] [i] ltpclo is running.
+[2019/11/22-14:24:08] [i] ltpclo is running.
+[2019/11/22-14:24:09] [x] src from 1970/01/01-00:00:00 to 2019/11/22-14:24:09: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:24:09] [x] fwd from 1970/01/01-00:00:00 to 2019/11/22-14:24:09: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:24:09] [x] xmt from 1970/01/01-00:00:00 to 2019/11/22-14:24:09: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:24:09] [x] rcv from 1970/01/01-00:00:00 to 2019/11/22-14:24:09: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:24:09] [x] dlv from 1970/01/01-00:00:00 to 2019/11/22-14:24:09: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:24:09] [x] ctr from 1970/01/01-00:00:00 to 2019/11/22-14:24:09: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:24:09] [x] rfw from 1970/01/01-00:00:00 to 2019/11/22-14:24:09: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:24:09] [x] exp from 1970/01/01-00:00:00 to 2019/11/22-14:24:09: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:24:13] [i] bprecvfile is running.
+[2019/11/22-14:24:23] [i] Span to engine 1 (max BER 0.000001, max xmit segment size 1400, max recv segment size 1391): xmit segment loss rate 0.011285, recv segment loss rate 0.011212, max timeouts 4.
+[2019/11/22-14:24:23] [i] bprecvfile has created 'testfile1', size 65536.
+[2019/11/22-14:24:23] [i] bprecvfile has created 'testfile2', size 65536.
+[2019/11/22-14:24:24] [i] bprecvfile has created 'testfile3', size 65536.
+[2019/11/22-14:24:25] [i] bprecvfile has created 'testfile4', size 65536.
+[2019/11/22-14:24:25] [i] bprecvfile has created 'testfile5', size 65536.
+[2019/11/22-14:24:26] [i] bprecvfile has created 'testfile6', size 65536.
+[2019/11/22-14:24:26] [i] bprecvfile has created 'testfile7', size 65536.
+[2019/11/22-14:24:27] [i] bprecvfile has created 'testfile8', size 65536.
+[2019/11/22-14:24:27] [i] bprecvfile has created 'testfile9', size 65536.
+[2019/11/22-14:24:28] [i] bprecvfile has created 'testfile10', size 65536.
+[2019/11/22-14:25:14] [i] bprecvfile has created 'testfile11', size 65536.
+[2019/11/22-14:25:15] [i] bprecvfile has created 'testfile12', size 65536.
+[2019/11/22-14:25:16] [i] bprecvfile has created 'testfile13', size 65536.
+[2019/11/22-14:25:16] [i] bprecvfile has created 'testfile14', size 65536.
+[2019/11/22-14:25:17] [i] bprecvfile has created 'testfile15', size 65536.
+[2019/11/22-14:25:17] [i] bprecvfile has created 'testfile16', size 65536.
+[2019/11/22-14:25:18] [i] bprecvfile has created 'testfile17', size 65536.
+[2019/11/22-14:25:18] [i] bprecvfile has created 'testfile18', size 65536.
+[2019/11/22-14:25:19] [i] bprecvfile has created 'testfile19', size 65536.
+[2019/11/22-14:25:19] [i] bprecvfile has created 'testfile20', size 65536.

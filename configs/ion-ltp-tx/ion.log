@@ -1,0 +1,27 @@
+[2019/11/22-14:25:02] [i] rfxclock is running.
+[2019/11/22-14:25:02] [i] No congestion collapse predicted.
+[2019/11/22-14:25:02] [i] ionwarn finished.
+[2019/11/22-14:25:03] [i] Span to engine 3 (max BER 0.000001, max xmit segment size 1400, max recv segment size 1): xmit segment loss rate 0.011285, recv segment loss rate 0.000008, max timeouts 4.
+[2019/11/22-14:25:03] [i] Total max export sessions does not exceed estimate.
+[2019/11/22-14:25:03] [i] No congestion collapse predicted.
+[2019/11/22-14:25:03] [i] ionwarn finished.
+[2019/11/22-14:25:04] [i] Bundle security is enabled.
+[2019/11/22-14:25:05] [i] ltpmeter is running.
+[2019/11/22-14:25:05] [i] udplso is running, spec=[172.0.0.2:1113], txbps=0 (0=unlimited), rengine=3.
+[2019/11/22-14:25:05] [i] udplsi is running, spec=[0.0.0.0:1113].
+[2019/11/22-14:25:06] [i] ltpclock is running.
+[2019/11/22-14:25:07] [i] bpclock is running.
+[2019/11/22-14:25:08] [i] ltpclo is running.
+[2019/11/22-14:25:08] [i] ltpclo is running.
+[2019/11/22-14:25:08] [i] ltpcli is running.
+[2019/11/22-14:25:08] [i] ipnfw is running.
+[2019/11/22-14:25:08] [i] bptransit is running.
+[2019/11/22-14:25:08] [i] ipnadminep is running.
+[2019/11/22-14:25:08] [x] src from 1970/01/01-00:00:00 to 2019/11/22-14:25:08: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:25:08] [x] fwd from 1970/01/01-00:00:00 to 2019/11/22-14:25:08: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:25:08] [x] xmt from 1970/01/01-00:00:00 to 2019/11/22-14:25:08: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:25:08] [x] rcv from 1970/01/01-00:00:00 to 2019/11/22-14:25:08: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:25:08] [x] dlv from 1970/01/01-00:00:00 to 2019/11/22-14:25:08: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:25:08] [x] ctr from 1970/01/01-00:00:00 to 2019/11/22-14:25:08: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:25:08] [x] rfw from 1970/01/01-00:00:00 to 2019/11/22-14:25:08: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
+[2019/11/22-14:25:08] [x] exp from 1970/01/01-00:00:00 to 2019/11/22-14:25:08: (0) 0 0 (1) 0 0 (2) 0 0 (+) 0 0
